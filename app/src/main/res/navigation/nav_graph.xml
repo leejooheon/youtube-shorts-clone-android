@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/shortsContainerFragment">
+
+    <fragment
+        android:id="@+id/shortsContainerFragment"
+        android:name="com.jooheon.youtube_shorts_clone_android.presentation.container.ShortsContainerFragment"
+        android:label="ShortsContainerFragment" />
+</navigation>

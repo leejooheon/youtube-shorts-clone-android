@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <androidx.media3.ui.PlayerView
+        android:id="@+id/video_frame"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:foreground="@drawable/gradient_foreground"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:use_controller="false"
+        app:use_artwork="true"
+        app:resize_mode="fill"
+        app:show_buffering="when_playing"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/bt_play_pause_small"
+        android:theme="@style/Theme.MaterialComponents.DayNight"
+        style="@style/Widget.Material3.Button.IconButton"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:insetLeft="0dp"
+        android:insetRight="0dp"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        app:backgroundTint="@android:color/transparent"
+        app:rippleColor="@color/black_50"
+        app:layout_constraintStart_toStartOf="@id/video_frame"
+        app:layout_constraintEnd_toEndOf="@id/video_frame"
+        app:layout_constraintTop_toTopOf="@id/video_frame"
+        app:layout_constraintBottom_toBottomOf="@id/video_frame"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_play_pause"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="2dp"
+        android:src="@drawable/ic_play"
+        android:tint="@android:color/white"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@id/bt_play_pause_small"
+        app:layout_constraintEnd_toEndOf="@id/bt_play_pause_small"
+        app:layout_constraintTop_toTopOf="@id/bt_play_pause_small"
+        app:layout_constraintBottom_toBottomOf="@id/bt_play_pause_small"
+        tools:visibility="visible" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_play_pause_full"
+            android:theme="@style/Theme.MaterialComponents.DayNight"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:insetLeft="0dp"
+            android:insetRight="0dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:backgroundTint="@android:color/transparent"
+            app:layout_constraintStart_toStartOf="@id/video_frame"
+            app:layout_constraintEnd_toEndOf="@id/video_frame"
+            app:layout_constraintTop_toTopOf="@id/video_frame"
+            app:layout_constraintBottom_toBottomOf="@id/video_frame"/>
+
+        <include
+            android:id="@+id/content"
+            layout="@layout/view_shorts_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:visibility="visible"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
