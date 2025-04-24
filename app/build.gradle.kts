@@ -12,7 +12,7 @@ android {
     defaultConfig {
         applicationId = "com.jooheon.youtube_shorts_clone_android"
         minSdk = Integer.parseInt(libs.versions.android.sdk.min.get())
-        targetSdk = Integer.parseInt(libs.versions.android.sdk.compile.get())
+        targetSdk = Integer.parseInt(libs.versions.android.sdk.target.get())
         versionCode = Integer.parseInt(libs.versions.version.code.get())
         versionName = libs.versions.version.name.get()
 

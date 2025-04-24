@@ -13,15 +13,6 @@ data class ShortsModel(
     val title: String,
     val thumbnail: String,
 ) {
-    companion object {
-        val default = ShortsModel(
-            id = "default-id",
-            mediaUrl = "",
-            creator = "default-creator",
-            title = "default-title",
-            thumbnail = "",
-        )
-    }
     fun toMediaItem() = MediaItem.Builder()
         .setMediaId(id)
         .setUri(mediaUrl)
