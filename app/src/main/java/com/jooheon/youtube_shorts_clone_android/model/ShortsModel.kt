@@ -1,19 +1,18 @@
 package com.jooheon.youtube_shorts_clone_android.model
 
-import android.os.Parcelable
 import androidx.core.net.toUri
 import androidx.media3.common.MediaItem
 import androidx.media3.common.MediaMetadata
-import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.Serializable
 
-@Parcelize
+@Serializable
 data class ShortsModel(
     val id: String,
     val mediaUrl: String,
     val creator: String,
     val title: String,
     val thumbnail: String,
-): Parcelable {
+) {
     companion object {
         val default = ShortsModel(
             id = "default-id",
