@@ -1,38 +1,23 @@
 package com.jooheon.youtube_shorts_clone_android
 
 import android.os.Bundle
+import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.fragment.NavHostFragment
-import com.jooheon.youtube_shorts_clone_android.databinding.ActivityMainBinding
-import com.jooheon.youtube_shorts_clone_android.player.ShortsCache
+import androidx.compose.material3.MaterialTheme
+import androidx.lifecycle.ViewModelProvider
 
 class MainActivity: AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
-
+    private lateinit var viewModel: PlayerViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        viewModel = ViewModelProvider(this)[PlayerViewModel::class.java]
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        ShortsCache.init(this)
-
-        setupNavigation()
-    }
-
-    private fun setupNavigation() {
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main) as NavHostFragment
-        val navController = navHostFragment.navController
-        val navInflater = navController.navInflater
-
-        navController.apply {
-            val navGraph = navInflater.inflate(R.navigation.nav_graph)
-            graph = navGraph
+        enableEdgeToEdge()
+        setContent {
+            MaterialTheme {
+                PlayerScreen(viewModel)
+            }
         }
-    }
-
-    override fun onDestroy() {
-        ShortsCache.release(this)
-        super.onDestroy()
     }
 }
